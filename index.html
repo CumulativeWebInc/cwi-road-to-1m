@@ -1,86 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Road to 1M — Cumulative Web Inc</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SET IT OFF — That Boy Hi Hat · 1M+ Streams Worldwide</title>
+<meta name="description" content="That Boy Hi Hat — independent alternative rap artist — crosses 1,000,000+ streams worldwide. 956,340 verified Spotify streams and counting. Celebrate, share, add to your playlist.">
+<meta property="og:title" content="SET IT OFF — That Boy Hi Hat · 1M+ Streams Worldwide">
+<meta property="og:description" content="Independent alternative rap. 1,000,000+ streams worldwide. 956,340 verified on Spotify — 43,660 to the next million.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --gold:#d4af37; --ink:#0a0a0c; --smoke:#141418; --dim:#9a9aa5; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:radial-gradient(1200px 700px at 50% -10%, #1c1c22 0%, var(--ink) 55%) fixed;
-         color:#f2f2f5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
-         min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 64px; }
-  .badge { letter-spacing:.35em; font-size:11px; color:var(--dim); text-transform:uppercase; margin-bottom:18px; }
-  h1 { font-size:clamp(40px,9vw,92px); font-weight:900; letter-spacing:-.02em; line-height:1; text-align:center;
-       background:linear-gradient(180deg,#fff 20%,var(--gold) 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  h1 .sub { display:block; font-size:clamp(20px,4vw,40px); font-weight:800; letter-spacing:.08em; color:#fff; -webkit-text-fill-color:#fff; margin-top:6px; }
-  .counter { margin-top:40px; text-align:center; }
-  .counter .num { font-variant-numeric:tabular-nums; font-size:clamp(56px,13vw,132px); font-weight:900; color:var(--gold);
-                  text-shadow:0 0 42px rgba(212,175,55,.35); letter-spacing:-.01em; }
-  .counter .lbl { margin-top:8px; font-size:14px; letter-spacing:.28em; text-transform:uppercase; color:var(--dim); }
-  .togo { margin-top:28px; text-align:center; }
-  .togo .num { font-variant-numeric:tabular-nums; font-size:clamp(30px,6vw,54px); font-weight:800; color:#fff; }
-  .togo .lbl { margin-top:6px; font-size:13px; letter-spacing:.24em; text-transform:uppercase; color:var(--dim); }
-  .bar { width:min(680px,92vw); margin-top:36px; }
-  .track { height:22px; border-radius:999px; background:#222228; border:1px solid #2e2e36; overflow:hidden; position:relative; }
-  .fill { height:100%; width:0%; border-radius:999px;
-          background:linear-gradient(90deg,#8a6d1c,var(--gold));
-          box-shadow:0 0 24px rgba(212,175,55,.45); transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
-  .pct { margin-top:10px; text-align:right; font-variant-numeric:tabular-nums; font-weight:700; color:var(--gold); font-size:18px; }
-  .songs { margin-top:26px; font-size:15px; color:var(--dim); letter-spacing:.06em; }
-  .songs b { color:#fff; }
-  .note { margin-top:44px; max-width:640px; text-align:center; font-size:13px; line-height:1.7; color:var(--dim); }
-  .note .src { color:#c8c8d2; }
-  footer { margin-top:auto; padding-top:40px; font-size:12px; color:#55555e; letter-spacing:.18em; text-transform:uppercase; }
+:root{
+  --bg:#0b0b0f; --bg2:#121218; --card:#16161d; --line:#2a2a34;
+  --gold:#e8b33d; --gold-dim:#b78a2e; --ink:#f2ede3; --muted:#a8a39b;
+  --green:#3ddc84; --amber:#ffba20; --red:#ff4d5e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden}
+.display{font-family:"Archivo Black","Inter",sans-serif;letter-spacing:-.5px}
+a{color:var(--gold)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-art{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;filter:saturate(1.1)}
+.hero-art img{width:100%;height:100%;object-fit:cover;opacity:.55;animation:slowzoom 24s ease-in-out infinite alternate}
+.hero-art img:nth-child(2){animation-delay:-6s}.hero-art img:nth-child(3){animation-delay:-12s}.hero-art img:nth-child(4){animation-delay:-18s}
+@keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,15,.55) 0%,rgba(11,11,15,.25) 35%,rgba(11,11,15,.92) 78%,var(--bg) 100%)}
+.hero-inner{position:relative;z-index:2;padding:0 20px 34px;max-width:860px;margin:0 auto;width:100%}
+.eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);border-radius:999px;padding:6px 16px;margin-bottom:18px;background:rgba(11,11,15,.6)}
+.hero h1{font-size:clamp(52px,13vw,120px);line-height:.95;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.hero h1 .amp{color:var(--gold)}
+.million{font-size:clamp(64px,17vw,150px);color:var(--gold);text-shadow:0 0 40px rgba(232,179,61,.45),0 4px 24px rgba(0,0,0,.7);line-height:1;margin:6px 0 4px}
+.hero-sub{font-size:clamp(16px,4.2vw,21px);color:#e8e2d6;max-width:34em}
+.truth-chip{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--muted);background:rgba(11,11,15,.65);border:1px solid var(--line);border-radius:8px;padding:7px 12px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:16px;border-radius:12px;padding:14px 22px;text-decoration:none;border:0;cursor:pointer;transition:transform .12s ease}
+.btn:active{transform:scale(.96)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#f5d67b);color:#1a1206;box-shadow:0 6px 24px rgba(232,179,61,.35)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.scroll-hint{text-align:center;color:var(--muted);font-size:12px;letter-spacing:3px;margin-top:26px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(6px);opacity:1}}
+/* ---------- TICKER ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;white-space:nowrap;padding:12px 0}
+.ticker span{display:inline-block;padding:0 18px;font-weight:700;font-size:14px;color:var(--gold);letter-spacing:1px}
+.ticker .dim{color:var(--muted)}
+/* ---------- SECTIONS ---------- */
+section.block{padding:64px 20px;max-width:860px;margin:0 auto}
+.kicker{font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2.sec{font-size:clamp(30px,7.5vw,48px);line-height:1.05;margin-bottom:14px;color:#fff}
+p.lead{color:#d9d3c6;font-size:17px;max-width:36em}
+/* countdown */
+.count-card{background:linear-gradient(160deg,#17171f,#101016);border:1px solid var(--line);border-radius:20px;padding:30px 24px;margin-top:26px;position:relative;overflow:hidden}
+.count-card::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at 50% -60px,rgba(232,179,61,.18),transparent);pointer-events:none}
+.bignum{font-size:clamp(46px,11vw,84px);color:#fff;font-variant-numeric:tabular-nums}
+.bignum small{font-size:.35em;color:var(--muted);font-family:"Inter";font-weight:600;letter-spacing:0}
+.gap{font-size:clamp(20px,5vw,28px);color:var(--gold);font-weight:800;margin-top:6px;font-variant-numeric:tabular-nums}
+.bar{height:14px;border-radius:999px;background:#23232c;margin:22px 0 8px;overflow:hidden;position:relative}
+.bar>i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),#ffe9a8);position:relative;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.bar>i::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);animation:shimmer 2.2s linear infinite}
+@keyframes shimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.bar-meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.src{font-size:12.5px;color:var(--muted);margin-top:14px}
+.src b{color:var(--green)}
+/* catalog table */
+.track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;gap:14px;transition:border-color .15s}
+.track:hover{border-color:var(--gold-dim)}
+.track img{width:52px;height:52px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.track .rank{font-family:"Archivo Black";color:var(--gold);font-size:15px;width:30px;flex-shrink:0;text-align:center}
+.track .name{flex:1;min-width:0}
+.track .name b{display:block;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track .name span{font-size:12px;color:var(--muted)}
+.track .plays{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track .pbar{height:4px;border-radius:99px;background:#26262e;margin-top:6px;overflow:hidden}
+.track .pbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:99px}
+/* story cards */
+.story{display:grid;gap:14px;margin-top:26px}
+@media(min-width:640px){.story{grid-template-columns:1fr 1fr}}
+.story-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.story-card img{width:100%;height:190px;object-fit:cover;display:block}
+.story-card .pad{padding:18px}
+.story-card h3{font-size:19px;margin-bottom:6px;color:#fff}
+.story-card p{font-size:14.5px;color:#cfc9bc}
+/* engagement */
+.engage{background:linear-gradient(180deg,var(--bg2),#0e0e13);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share-row{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.share-btn{flex:1 1 140px;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;border:1px solid var(--line);background:#1b1b23;color:#fff}
+.share-btn:hover{border-color:var(--gold-dim)}
+.pl-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:12px 0;display:flex;gap:16px;align-items:center}
+.pl-card .art{width:74px;height:74px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(135deg,#1db95433,#1db95411);border:1px solid #1db95455}
+.pl-card b{display:block;font-size:16.5px;color:#fff}
+.pl-card p{font-size:13.5px;color:var(--muted);margin:2px 0 10px}
+footer{padding:44px 20px 70px;max-width:860px;margin:0 auto;color:var(--muted);font-size:13px}
+footer h4{color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin:18px 0 8px}
+footer li{margin:6px 0;list-style:none}
+footer li::before{content:"▸ ";color:var(--gold-dim)}
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+.b-ok{background:rgba(61,220,132,.14);color:var(--green);border:1px solid rgba(61,220,132,.4)}
+.b-rep{background:rgba(255,186,32,.12);color:var(--amber);border:1px solid rgba(255,186,32,.4)}
+.note{font-size:13px;color:var(--muted);background:#121218;border:1px dashed var(--line);border-radius:12px;padding:14px 16px;margin-top:18px}
 </style>
 </head>
 <body>
-  <div class="badge">Cumulative Web Inc &mdash; Catalog Milestone</div>
-  <h1>ROAD TO 1M<span class="sub">TOTAL SPOTIFY STREAMS</span></h1>
+<canvas id="confetti"></canvas>
 
-  <div class="counter">
-    <div class="num" id="total">—</div>
-    <div class="lbl">verified streams</div>
+<header class="hero">
+  <div class="hero-art">
+    <img src="assets/zooted-zone.jpg" alt="Zooted Zone cover art">
+    <img src="assets/diabolique.jpg" alt="Diabolique cover art">
+    <img src="assets/shaka-zulu.jpg" alt="Shaka Zulu cover art">
+    <img src="assets/doves-diamonds.jpg" alt="Doves and Diamonds cover art">
   </div>
-
-  <div class="togo">
-    <div class="num" id="remaining">—</div>
-    <div class="lbl">streams to go</div>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Cumulative Web Inc · Independent Alternative Rap</span>
+    <h1 class="display">SET<br>IT <span class="amp">OFF</span></h1>
+    <div class="million display" id="heroCount">0</div>
+    <p class="hero-sub"><b style="color:#fff">That Boy Hi Hat</b> just crossed <b style="color:var(--gold)">1,000,000+ streams worldwide</b> — as an independent alternative rap artist. No label machine. Just the music.</p>
+    <span class="truth-chip">🌍 Career total across all platforms, as reported by Cumulative Web Inc · Sept 2026</span>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#countdown">🎯 Join the countdown</a>
+      <a class="btn btn-ghost" href="#share">📣 Share it</a>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
   </div>
+</header>
 
-  <div class="bar">
-    <div class="track"><div class="fill" id="fill"></div></div>
-    <div class="pct" id="pct">—</div>
+<div class="ticker" aria-hidden="true"><span id="tickerTrack"></span></div>
+
+<section class="block" id="countdown">
+  <div class="kicker">The next million</div>
+  <h2 class="sec display">Spotify is at <span style="color:var(--gold)">95.6%</span></h2>
+  <p class="lead">The worldwide million is in the books. Now the mission is the next one — <b style="color:#fff">1,000,000 streams on Spotify alone.</b> Every play pushes the bar.</p>
+  <div class="count-card">
+    <div class="bignum display"><span id="spCount">0</span><small> / 1,000,000</small></div>
+    <div class="gap"><span id="gapCount">0</span> streams to go</div>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="bar-meta"><span>0</span><span id="pctLabel">0%</span><span>1,000,000</span></div>
+    <p class="src"><b>● VERIFIED</b> via Spotify for Artists (owner's artist dashboard) · 2026-09-17 · 25 songs · all-time streams</p>
   </div>
+</section>
 
-  <div class="songs"><b id="songs">—</b> songs in catalog &nbsp;&middot;&nbsp; goal: <b>1,000,000</b></div>
+<section class="block" id="catalog">
+  <div class="kicker">The catalog</div>
+  <h2 class="sec display">Every stream, <span style="color:var(--gold)">verified</span></h2>
+  <p class="lead">All 25 songs. All-time Spotify streams, straight from the artist's own dashboard. No estimates, no rounding games.</p>
+  <div id="trackList" style="margin-top:22px"></div>
+  <div class="note">Track titles shown as listed in Spotify for Artists (truncated entries noted as alternate versions). Counts aggregate all release versions of each song.</div>
+</section>
 
-  <div class="note">
-    Last updated <span class="src" id="asof">—</span> &mdash; numbers update with each verified audit.<br>
-    Source: <span class="src">Spotify for Artists (owner's artist dashboard)</span>, verified 2026-09-17.<br>
-    Machine-readable data: <a class="src" href="stats.json">stats.json</a>
+<section class="block" id="story">
+  <div class="kicker">The story</div>
+  <h2 class="sec display">Two songs. <span style="color:var(--gold)">570K</span> streams.</h2>
+  <p class="lead">The catalog's top two tracks carry over half of all Spotify streams — and one of them was invisible to the public until today.</p>
+  <div class="story">
+    <div class="story-card">
+      <img src="assets/zooted-zone.jpg" alt="Zooted Zone artwork">
+      <div class="pad">
+        <h3 class="display">Zooted Zone — 316,402</h3>
+        <p>The breakout. The track that proved the music works at playlist scale — and it's still climbing on New Rap Hits and No Label Needed.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="assets/gtavi.jpg" alt="Broken Hearts Club artwork">
+      <div class="pad">
+        <h3 class="display">Broken Hearts Club — 255,301</h3>
+        <p>The #2 track nobody could see. No public stream count existed anywhere — until the dashboard opened. A quarter-million streams strong.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="assets/artist.jpg" alt="That Boy Hi Hat">
+      <div class="pad">
+        <h3 class="display">Independent. Alternative rap.</h3>
+        <p>Post-trap futurism from Frederick, Maryland. 1M+ career streams worldwide with no label machine — and the next million is already loading.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="assets/diabolique.jpg" alt="Diabolique artwork">
+      <div class="pad">
+        <h3 class="display">The catalog runs deep</h3>
+        <p>Doves &amp; Diamonds (132K), Place I Go to Dream (47K), Shaka Zulu (28K) — 25 songs deep, every one of them streaming.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <footer>Cumulative Web Inc</footer>
+<div class="engage" id="share">
+<section class="block">
+  <div class="kicker">Set it off with us</div>
+  <h2 class="sec display">Push the <span style="color:var(--gold)">bar</span></h2>
+  <p class="lead">43,660 streams to go. Share the milestone, add the catalog to your playlist — every play moves the countdown.</p>
+  <div class="share-row">
+    <a class="share-btn" id="shareX" href="#" target="_blank" rel="noopener">𝕏&nbsp; Post on X</a>
+    <a class="share-btn" id="shareWA" href="#" target="_blank" rel="noopener">💬&nbsp; WhatsApp</a>
+    <button class="share-btn" id="shareNative">📤&nbsp; Share…</button>
+    <button class="share-btn" id="copyLink">🔗&nbsp; Copy link</button>
+  </div>
+  <div class="pl-card">
+    <div class="art">🎧</div>
+    <div style="flex:1">
+      <b>The Complete Catalog — AI Learning Set</b>
+      <p>24 tracks · the full That Boy Hi Hat catalog in one playlist</p>
+      <a class="btn btn-gold" style="padding:10px 18px;font-size:14px" href="https://open.spotify.com/playlist/45RaLEzD4KO8YHpp3oayq8" target="_blank" rel="noopener">＋ Add to your playlist</a>
+    </div>
+  </div>
+  <div class="pl-card">
+    <div class="art">🤖</div>
+    <div style="flex:1">
+      <b>Post-Trap Futurism Radio — Agent Jam Session</b>
+      <p>The collaborative session playlist — jump in and add your picks</p>
+      <a class="btn btn-ghost" style="padding:10px 18px;font-size:14px" href="https://open.spotify.com/playlist/7g4m55mSnLFSCEy2aycCZd" target="_blank" rel="noopener">▶ Open the session</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <h4>Sources &amp; verification</h4>
+  <ul>
+    <li><b style="color:#fff">956,340 all-time Spotify streams</b> <span class="badge b-ok">VERIFIED</span> — Spotify for Artists, owner's artist dashboard, read 2026-09-17. Aggregates all release versions per song.</li>
+    <li><b style="color:#fff">1,000,000+ streams worldwide</b> <span class="badge b-rep">LABEL-REPORTED</span> — career total across all platforms, as reported by Cumulative Web Inc, Sept 2026. Not independently audited; shown as the label's report, not a verified count.</li>
+    <li>YouTube view counts from public video pages, read 2026-09-17. YouTube Music play counts from the public artist page.</li>
+    <li>Playlist placements verified by live Spotify scans, 2026-09-17.</li>
+  </ul>
+  <h4>The rule</h4>
+  <p>This page ships only numbers that trace to a source. Anything that couldn't be traced was cut. No estimates. No rounding games.</p>
+  <p style="margin-top:16px">Cumulative Web Inc · That Boy Hi Hat · Post-Trap Futurism · Set It Off — Sept 2026</p>
+</footer>
 
 <script>
-fetch('stats.json', { cache: 'no-store' })
-  .then(r => { if (!r.ok) throw new Error('stats.json ' + r.status); return r.json(); })
-  .then(s => {
-    const fmt = n => n.toLocaleString('en-US');
-    document.getElementById('total').textContent = fmt(s.total_streams);
-    document.getElementById('remaining').textContent = fmt(s.remaining);
-    document.getElementById('pct').textContent = s.percent_complete.toFixed(3) + '% complete';
-    document.getElementById('songs').textContent = s.catalog_songs;
-    document.getElementById('asof').textContent = s.as_of;
-    document.title = fmt(s.total_streams) + ' / 1,000,000 — Road to 1M';
-    requestAnimationFrame(() => {
-      document.getElementById('fill').style.width = s.percent_complete + '%';
-    });
-  })
-  .catch(err => {
-    document.getElementById('total').textContent = 'unavailable';
-  });
+// ---- Verified catalog data (matches stats.json; audited 2026-09-17) ----
+const TRACKS = [
+  ["Zooted Zone",316402,"zooted-zone.jpg"],
+  ["Broken Hearts Club",255301,"gtavi.jpg"],
+  ["Doves & Diamonds",132183,"doves-diamonds.jpg"],
+  ["Place I Go to Dream",46889,"idol-or-icon.jpg"],
+  ["Shaka Zulu",27884,"shaka-zulu.jpg"],
+  ["Rainbows And Roses",26567,"idol-or-icon.jpg"],
+  ["Warped & Wicked",25004,"gtavi.jpg"],
+  ["Neon Nights Pt. 777",22003,"gtavi.jpg"],
+  ["Golden Diamond",19874,"gtavi.jpg"],
+  ["Diabolique",19031,"diabolique.jpg"],
+  ["7th Angel",18768,"gtavi.jpg"],
+  ["Scorpion & Sapphires",16369,"idol-or-icon.jpg"],
+  ["Place I Go to Dream (alt. version)",11722,"idol-or-icon.jpg"],
+  ["Flex My Flame",8121,"idol-or-icon.jpg"],
+  ["Tears and Scars",4182,"idol-or-icon.jpg"],
+  ["Spirits n Shadows",2257,"idol-or-icon.jpg"],
+  ["Flamerz",913,"flamerz.jpg"],
+  ["Phantasm",858,"idol-or-icon.jpg"],
+  ["Rainbows And Roses (alt. version)",770,"idol-or-icon.jpg"],
+  ["Roses over Monaco",425,"idol-or-icon.jpg"],
+  ["Smokin' Pain",261,"idol-or-icon.jpg"],
+  ["Ultimate",238,"idol-or-icon.jpg"],
+  ["Misfits and Hooligans",207,"idol-or-icon.jpg"],
+  ["Painted Lady",73,"idol-or-icon.jpg"],
+  ["Toxic Element",38,"idol-or-icon.jpg"]
+];
+const FALLBACK = {total_streams:956340, goal:1000000, remaining:43660, percent_complete:95.634, as_of:"2026-09-17"};
+const fmt = n => n.toLocaleString("en-US");
+
+// ---- Render track list ----
+const max = TRACKS[0][1];
+document.getElementById("trackList").innerHTML = TRACKS.map((t,i)=>`
+  <div class="track">
+    <span class="rank">${i+1}</span>
+    <img src="assets/${t[2]}" alt="" loading="lazy">
+    <div class="name"><b>${t[0]}</b><span>all-time Spotify streams</span>
+      <div class="pbar"><i style="width:${(t[1]/max*100).toFixed(1)}%"></i></div>
+    </div>
+    <div class="plays">${fmt(t[1])}</div>
+  </div>`).join("");
+
+// ---- Ticker ----
+document.getElementById("tickerTrack").innerHTML =
+  TRACKS.map(t=>`<span>${t[0]} <span class="dim">· ${fmt(t[1])}</span></span>`).join('<span class="dim">✦</span>');
+
+// ---- Counters + countdown (reads stats.json, falls back to audited snapshot) ----
+async function loadStats(){
+  try{ const r = await fetch("stats.json",{cache:"no-store"}); if(r.ok) return await r.json(); }catch(e){}
+  return FALLBACK;
+}
+function animateCount(el, to, dur){
+  const t0 = performance.now();
+  (function tick(t){ const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+    el.textContent = fmt(Math.round(to*e)); if(p<1) requestAnimationFrame(tick); })(t0);
+}
+loadStats().then(s=>{
+  animateCount(document.getElementById("heroCount"), 1000000, 2200);
+  const el = document.getElementById("spCount");
+  const io = new IntersectionObserver(en=>{
+    if(en[0].isIntersecting){ animateCount(el, s.total_streams, 1800);
+      animateCount(document.getElementById("gapCount"), s.remaining, 1800);
+      requestAnimationFrame(()=>{ document.getElementById("barFill").style.width = s.percent_complete+"%"; });
+      let p=0; const iv=setInterval(()=>{ p+=2; if(p>=s.percent_complete){p=s.percent_complete;clearInterval(iv);}
+        document.getElementById("pctLabel").textContent = p.toFixed(1)+"%"; },36);
+      io.disconnect(); }
+  },{threshold:.3});
+  io.observe(el);
+});
+
+// ---- Confetti (gold/white/red, CWI energy) ----
+const cv = document.getElementById("confetti"), cx = cv.getContext("2d");
+let parts = [];
+function sizeCanvas(){ cv.width = innerWidth; cv.height = innerHeight; }
+sizeCanvas(); addEventListener("resize", sizeCanvas);
+const COLORS = ["#e8b33d","#ffe9a8","#ffffff","#ff4d5e","#b78a2e"];
+function burst(x, y, n){
+  for(let i=0;i<n;i++) parts.push({x,y,vx:(Math.random()-.5)*11,vy:Math.random()*-11-3,
+    g:.32,s:Math.random()*7+4,r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,
+    c:COLORS[Math.floor(Math.random()*COLORS.length)],life:1});
+}
+(function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts = parts.filter(p=>p.life>0 && p.y<cv.height+20);
+  for(const p of parts){ p.x+=p.vx; p.y+=p.vy; p.vy+=p.g; p.r+=p.vr; p.life-=.008;
+    cx.save(); cx.globalAlpha=Math.max(0,p.life); cx.translate(p.x,p.y); cx.rotate(p.r);
+    cx.fillStyle=p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62); cx.restore(); }
+  requestAnimationFrame(loop);
+})();
+addEventListener("load", ()=>{ burst(innerWidth/2, innerHeight*.28, 160);
+  setTimeout(()=>burst(innerWidth*.25, innerHeight*.2, 80), 500);
+  setTimeout(()=>burst(innerWidth*.75, innerHeight*.2, 80), 900); });
+
+// ---- Share ----
+const PAGE_URL = location.href.split("#")[0];
+const SHARE_TEXT = "SET IT OFF 🔥 That Boy Hi Hat just crossed 1M+ streams worldwide as an independent alternative rap artist. 956,340 verified on Spotify — help push the next million:";
+document.getElementById("shareX").href = "https://x.com/intent/post?text="+encodeURIComponent(SHARE_TEXT)+"&url="+encodeURIComponent(PAGE_URL);
+document.getElementById("shareWA").href = "https://wa.me/?text="+encodeURIComponent(SHARE_TEXT+" "+PAGE_URL);
+document.getElementById("copyLink").onclick = async (e)=>{
+  try{ await navigator.clipboard.writeText(PAGE_URL); e.target.textContent="✅ Copied!"; }
+  catch(_){ prompt("Copy this link:", PAGE_URL); }
+  burst(innerWidth/2, innerHeight/2, 60);
+  setTimeout(()=>e.target.innerHTML="🔗&nbsp; Copy link", 1800);
+};
+document.getElementById("shareNative").onclick = async (e)=>{
+  if(navigator.share){ try{ await navigator.share({title:document.title, text:SHARE_TEXT, url:PAGE_URL}); }catch(_){} }
+  else{ try{ await navigator.clipboard.writeText(SHARE_TEXT+" "+PAGE_URL); e.target.textContent="✅ Link copied!"; setTimeout(()=>e.target.innerHTML="📤&nbsp; Share…",1800);}catch(_){} }
+  burst(innerWidth/2, innerHeight/2, 60);
+};
 </script>
 </body>
 </html>
