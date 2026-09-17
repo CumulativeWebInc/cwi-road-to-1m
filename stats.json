@@ -1,1 +1,114 @@
-{"as_of":"2026-09-17","catalog_songs":25,"goal":1000000,"percent_complete":95.634,"remaining":43660,"source":"Spotify for Artists (owner's artist dashboard)","total_streams":956340}
+{
+  "as_of": "2026-09-17",
+  "catalog_songs": 25,
+  "goal": 1000000,
+  "percent_complete": 95.634,
+  "remaining": 43660,
+  "source": "Spotify for Artists (owner's artist dashboard)",
+  "total_streams": 956340,
+  "label_reported_worldwide_total": "1,000,000+",
+  "label_reported_note": "Career total across all platforms, as reported by Cumulative Web Inc (Sept 2026); not independently audited.",
+  "page": "https://cumulativewebinc.github.io/cwi-road-to-1m/",
+  "tracks": [
+    {
+      "name": "Zooted Zone",
+      "streams": 316402
+    },
+    {
+      "name": "Broken Hearts Club",
+      "streams": 255301
+    },
+    {
+      "name": "Doves & Diamonds",
+      "streams": 132183
+    },
+    {
+      "name": "Place I Go to Dream",
+      "streams": 46889
+    },
+    {
+      "name": "Shaka Zulu",
+      "streams": 27884
+    },
+    {
+      "name": "Rainbows And Roses",
+      "streams": 26567
+    },
+    {
+      "name": "Warped & Wicked",
+      "streams": 25004
+    },
+    {
+      "name": "Neon Nights Pt. 777",
+      "streams": 22003
+    },
+    {
+      "name": "Golden Diamond",
+      "streams": 19874
+    },
+    {
+      "name": "Diabolique",
+      "streams": 19031
+    },
+    {
+      "name": "7th Angel",
+      "streams": 18768
+    },
+    {
+      "name": "Scorpion & Sapphires",
+      "streams": 16369
+    },
+    {
+      "name": "Place I Go to Dream (alt. version)",
+      "streams": 11722
+    },
+    {
+      "name": "Flex My Flame",
+      "streams": 8121
+    },
+    {
+      "name": "Tears and Scars",
+      "streams": 4182
+    },
+    {
+      "name": "Spirits n Shadows",
+      "streams": 2257
+    },
+    {
+      "name": "Flamerz",
+      "streams": 913
+    },
+    {
+      "name": "Phantasm",
+      "streams": 858
+    },
+    {
+      "name": "Rainbows And Roses (alt. version)",
+      "streams": 770
+    },
+    {
+      "name": "Roses over Monaco",
+      "streams": 425
+    },
+    {
+      "name": "Smokin' Pain",
+      "streams": 261
+    },
+    {
+      "name": "Ultimate",
+      "streams": 238
+    },
+    {
+      "name": "Misfits and Hooligans",
+      "streams": 207
+    },
+    {
+      "name": "Painted Lady",
+      "streams": 73
+    },
+    {
+      "name": "Toxic Element",
+      "streams": 38
+    }
+  ]
+}
