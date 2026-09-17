@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road to 1M — Cumulative Web Inc</title>
+<style>
+  :root { --gold:#d4af37; --ink:#0a0a0c; --smoke:#141418; --dim:#9a9aa5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:radial-gradient(1200px 700px at 50% -10%, #1c1c22 0%, var(--ink) 55%) fixed;
+         color:#f2f2f5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+         min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 64px; }
+  .badge { letter-spacing:.35em; font-size:11px; color:var(--dim); text-transform:uppercase; margin-bottom:18px; }
+  h1 { font-size:clamp(40px,9vw,92px); font-weight:900; letter-spacing:-.02em; line-height:1; text-align:center;
+       background:linear-gradient(180deg,#fff 20%,var(--gold) 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  h1 .sub { display:block; font-size:clamp(20px,4vw,40px); font-weight:800; letter-spacing:.08em; color:#fff; -webkit-text-fill-color:#fff; margin-top:6px; }
+  .counter { margin-top:40px; text-align:center; }
+  .counter .num { font-variant-numeric:tabular-nums; font-size:clamp(56px,13vw,132px); font-weight:900; color:var(--gold);
+                  text-shadow:0 0 42px rgba(212,175,55,.35); letter-spacing:-.01em; }
+  .counter .lbl { margin-top:8px; font-size:14px; letter-spacing:.28em; text-transform:uppercase; color:var(--dim); }
+  .togo { margin-top:28px; text-align:center; }
+  .togo .num { font-variant-numeric:tabular-nums; font-size:clamp(30px,6vw,54px); font-weight:800; color:#fff; }
+  .togo .lbl { margin-top:6px; font-size:13px; letter-spacing:.24em; text-transform:uppercase; color:var(--dim); }
+  .bar { width:min(680px,92vw); margin-top:36px; }
+  .track { height:22px; border-radius:999px; background:#222228; border:1px solid #2e2e36; overflow:hidden; position:relative; }
+  .fill { height:100%; width:0%; border-radius:999px;
+          background:linear-gradient(90deg,#8a6d1c,var(--gold));
+          box-shadow:0 0 24px rgba(212,175,55,.45); transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
+  .pct { margin-top:10px; text-align:right; font-variant-numeric:tabular-nums; font-weight:700; color:var(--gold); font-size:18px; }
+  .songs { margin-top:26px; font-size:15px; color:var(--dim); letter-spacing:.06em; }
+  .songs b { color:#fff; }
+  .note { margin-top:44px; max-width:640px; text-align:center; font-size:13px; line-height:1.7; color:var(--dim); }
+  .note .src { color:#c8c8d2; }
+  footer { margin-top:auto; padding-top:40px; font-size:12px; color:#55555e; letter-spacing:.18em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+  <div class="badge">Cumulative Web Inc &mdash; Catalog Milestone</div>
+  <h1>ROAD TO 1M<span class="sub">TOTAL SPOTIFY STREAMS</span></h1>
+
+  <div class="counter">
+    <div class="num" id="total">—</div>
+    <div class="lbl">verified streams</div>
+  </div>
+
+  <div class="togo">
+    <div class="num" id="remaining">—</div>
+    <div class="lbl">streams to go</div>
+  </div>
+
+  <div class="bar">
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="pct" id="pct">—</div>
+  </div>
+
+  <div class="songs"><b id="songs">—</b> songs in catalog &nbsp;&middot;&nbsp; goal: <b>1,000,000</b></div>
+
+  <div class="note">
+    Last updated <span class="src" id="asof">—</span> &mdash; numbers update with each verified audit.<br>
+    Source: <span class="src">Spotify for Artists (owner's artist dashboard)</span>, verified 2026-09-17.<br>
+    Machine-readable data: <a class="src" href="stats.json">stats.json</a>
+  </div>
+
+  <footer>Cumulative Web Inc</footer>
+
+<script>
+fetch('stats.json', { cache: 'no-store' })
+  .then(r => { if (!r.ok) throw new Error('stats.json ' + r.status); return r.json(); })
+  .then(s => {
+    const fmt = n => n.toLocaleString('en-US');
+    document.getElementById('total').textContent = fmt(s.total_streams);
+    document.getElementById('remaining').textContent = fmt(s.remaining);
+    document.getElementById('pct').textContent = s.percent_complete.toFixed(3) + '% complete';
+    document.getElementById('songs').textContent = s.catalog_songs;
+    document.getElementById('asof').textContent = s.as_of;
+    document.title = fmt(s.total_streams) + ' / 1,000,000 — Road to 1M';
+    requestAnimationFrame(() => {
+      document.getElementById('fill').style.width = s.percent_complete + '%';
+    });
+  })
+  .catch(err => {
+    document.getElementById('total').textContent = 'unavailable';
+  });
+</script>
+</body>
+</html>
